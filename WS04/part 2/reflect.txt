@@ -1,0 +1,8 @@
+In my code, I've demonstrated both composition and aggregation and this workshop helped me to understand this concept a bit better.
+Composition is used in the Restaurant class where Reservation objects are directly managed. 
+For instance, Restaurant owns m_reservations and handles their lifetime, shown by delete[] m_reservations in the destructor, copy constructor, and assignment operator.
+Aggregation is shown in the ConfirmationSender class, where it holds pointers to Reservation objects it doesn't own, indicated by the const Reservation** m_reservations member.
+For move and copy functions:
+The move constructor/assignment transfers ownership (Restaurant::Restaurant(Restaurant&&)), and the copy constructor/assignment duplicates the Reservation objects (Restaurant::Restaurant(const Restaurant&)).
+The move constructor/assignment transfers pointers (ConfirmationSender::ConfirmationSender(ConfirmationSender&&)), while the copy constructor/assignment duplicates the pointers without owning the Reservation objects (ConfirmationSender::ConfirmationSender(const ConfirmationSender&)).
+Associations are there in both Restaurant and ConfirmationSender, where classes interact without ownership, shown by friend functions like std::ostream& operator<<(std::ostream&, const Restaurant&) and std::ostream& operator<<(std::ostream&, const ConfirmationSender&).

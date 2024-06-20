@@ -1,0 +1,26 @@
+//==============================================
+// Name:           Babak Ghafourigivi
+// Student Number: 165118233
+// Email:          bghafourigivi@myseneca.ca
+// Section:        ZDD
+// Date:           June 15, 2024
+// I declare that this submission is the result of my own work and I only copied the code
+// that my professor provided to complete my workshops and assignments.
+// This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//==============================================
+
+During this workshop, I learned several important concepts and implemented new modules in my solution. Here are my key takeaways: 
+Functor vs. Lambda Expression:
+ - A functor is an object or class that overloads the function call operator
+(operator()). It can be used to create objects that behave like functions.
+ - A lambda expression is an anonymous function object that can be defined inline. It provides a compact way to define small, one-time use functions.
+ - The choice between a functor and a lambda expression depends on the specific use case. Functors are useful when creating reusable function objects, while lambda expressions are more suitable for short, localized functions.
+Handling Exceptions in SpellChecker:
+ - The constructor of SpellChecker throws an exception when the input file is missing. To achieve the same result without exceptions, I would modify the constructor to return a boolean value indicating success or failure.
+ - On the client side, I would check the return value of the constructor and handle the error condition accordingly. This approach avoids the use of exceptions and provides more control over error handling. Reducing Duplication in Movie and Book Classes:
+ - The Movie and Book classes have similar logic for loading data from a file. To eliminate duplication, I would create a separate utility function that takes a filename and returns a vector of objects (movies or
+books) loaded from the file.
+ - Both classes can then use this utility function to load data, reducing redundancy and promoting code reusability. Default Constructor in Movie and Book Classes:
+ - The default constructor in both Movie and Book classes is necessary because it allows the objects to be default-constructed.
+ - Removing the default constructor would prevent the creation of objects without explicitly providing arguments. However, if the default constructor is not required in the application, it can be made private or deleted to enforce explicit initialization.
+Overall, this workshop enhanced my understanding of functors, lambda expressions, error handling, code reuse, and constructor design choices. By implementing the new modules and addressing the mentioned points, I was able to improve the functionality and structure of my solution.
