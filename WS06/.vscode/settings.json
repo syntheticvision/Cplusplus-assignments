@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "string": "cpp",
-        "stdexcept": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
-}
