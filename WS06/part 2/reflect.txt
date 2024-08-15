@@ -1,0 +1,18 @@
+//==============================================
+// Name:           Babak Ghafourigivi
+// Student Number: 165118233
+// Email:          bghafourigivi@myseneca.ca
+// Section:        ZDD
+// Date:           July 6, 2024
+// I declare that this submission is the result of my own work and I only copied the code
+// that my professor provided to complete my workshops and assignments.
+// This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//==============================================
+
+In this workshop, I learned about dynamic memory allocation and polymorphism in C++. Deallocating dynamically allocated memory is crucial to avoid memory leaks, especially when using containers like `std::vector` to store pointers to resources. By doing so in the destructor, I ensure that all resources are properly released.
+
+To call specific functions for `Directory` objects stored in `Resource*`, I used `dynamic_cast` for safe downcasting, allowing me to invoke derived class methods. This is necessary to ensure type safety and avoid undefined behaviour.
+
+Using `std::vector<seneca::Resource*>` instead of `std::vector<seneca::Resource>` is essential because the latter would cause slicing, losing the derived class parts of the objects. Pointers enable polymorphic behaviour, allowing me to store and manage different types of resources in a single container.
+
+The challenging part was ensuring the correct updating of parent paths for nested directories and parsing the input file correctly to create the directory and file structure. This workshop enhanced my understanding of these fundamental C++ concepts.
