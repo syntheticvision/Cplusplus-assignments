@@ -1,0 +1,29 @@
+//==============================================
+// Name:           Babak Ghafourigivi
+// Student Number: 165118233
+// Email:          bghafourigivi@myseneca.ca
+// Section:        ZDD
+// Date:           July 21, 2024
+// I declare that this submission is the result of my own work and I only copied the code
+// that my professor provided to complete my workshops and assignments.
+// This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//==============================================
+In this workshop, I explored singleton patterns, template classes, smart pointers, and resource management in C++. 
+The `Database` class uses the singleton design pattern to ensure only one instance exists. We used `std::shared_ptr` for shared ownership, essential for multiple program parts accessing the singleton instance. For example:
+template <typename T>
+std::shared_ptr<Database> getInstance(const std::string &filename);
+
+A `std::unique_ptr` couldn't be used due to its single ownership nature.
+
+Transforming the class into a templated one involved modifying definitions and function signatures to accept a template parameter `T`:
+template <typename T>
+class Database {
+    // ...
+    static std::shared_ptr<Database<T>> db;
+};
+
+An alternative to creating a singleton without static members is using a static variable within a function, ensuring a single instance with function scope. The `Database` class lacks copy/move operations, which isn't a bug. Singleton classes typically prohibit these to maintain a single instance. Despite the singleton design, the constructor and destructor are called twice due to template specialization for `std::string` and `long long`:
+template <>
+std::shared_ptr<Database<std::string>> Database<std::string>::getInstance(const std::string &filename);
+
+This workshop enhanced my understanding of advanced C++ concepts, template classes, and singleton patterns, addressing issues like multiple instances and ensuring efficient resource management.

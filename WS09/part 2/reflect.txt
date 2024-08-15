@@ -1,0 +1,32 @@
+//==============================================
+// Name:           Babak Ghafourigivi
+// Student Number: 165118233
+// Email:          bghafourigivi@myseneca.ca
+// Section:        ZDD
+// Date:           July 28, 2024
+// I declare that this submission is the result of my own work and I only copied the code
+// that my professor provided to complete my workshops and assignments.
+// This submitted piece of work has not been shared with any other student or 3rd party content provider.
+//==============================================
+
+In this workshop, I learned about multi-threading for performance optimization, particularly in calculating average and variance. Using binary files proved efficient for handling large datasets due to reduced file size and faster I/O. Function binding with `std::bind` allowed clean thread creation. Adding `std::this_thread::sleep_for` highlighted how even small delays can impact performance when repeated frequently. For example, in `computeAvgFactor`:
+
+void computeAvgFactor(const int* arr, int size, int divisor, double& avg) {
+    avg = 0;
+    for (int i = 0; i < size; i++) {
+        avg += arr[i];
+        std::this_thread::sleep_for(std::chrono::nanoseconds(10));
+    }
+    avg /= divisor;
+}
+
+Challenges included correct data partitioning for threads and managing dynamic memory allocation. Multi-threading was implemented using:
+
+std::vector<std::thread> threads;
+for (int i = 0; i < num_threads; i++) {
+    threads.push_back(std::thread(computeAvgFactor, data + p_indices[i], p_indices[i + 1] - p_indices[i], total_items, std::ref(averages[i])));
+}
+for (auto& th : threads) {
+    th.join();
+}
+Overall, the experience enhanced my understanding of multi-threading, binary file handling, and function binding, providing essential skills for optimizing data-intensive applications.
